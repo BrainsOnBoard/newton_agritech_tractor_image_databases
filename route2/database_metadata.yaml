@@ -1,0 +1,10 @@
+%YAML:1.0
+---
+metadata:
+   time: "2015-07-28 10:09:50"
+   type: route
+   camera:
+      name: pixpro_usb
+      resolution: [ 720, 220 ]
+      isPanoramic: 0
+   needsUnwrapping: 0
