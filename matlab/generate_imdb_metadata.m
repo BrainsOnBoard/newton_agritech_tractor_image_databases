@@ -34,12 +34,12 @@ end
 
 for i = 1:num_databases
     dbdir = fullfile(mfiledir,'..',sprintf('route%d',i));
-    num_files = numel(dir(fullfile(dbdir,'*.png')));
+    num_files = numel(dir(fullfile(dbdir,'*.jpg')));
     vtime = (0:num_files-1)/fps;
     j = 1;
     num_files = [];
     while true
-        fpath = sprintf('%s/frame%05d.png',dbdir,j);
+        fpath = sprintf('%s/frame%05d.jpg',dbdir,j-1);
         if ~exist(fpath,'file')
             break
         end
@@ -84,7 +84,7 @@ for i = 1:num_databases
     vhead(end+1) = vhead(end);
     
     for j = 1:num_files
-        fprintf(fid,'%.0f, %.0f, %.0f, %.3f, frame%05d.png\n',vx(j),vy(j),vht(j),vhead(j),j);
+        fprintf(fid,'%.0f, %.0f, %.0f, %.3f, frame%05d.jpg\n',vx(j),vy(j),vht(j),vhead(j),j-1);
     end
     fclose(fid);
     
@@ -97,7 +97,7 @@ for i = 1:num_databases
         '   type: route\n' ...
         '   camera:\n' ...
         '      name: pixpro_usb\n' ...
-        '      resolution: [ 1280, 720 ]\n' ...
+        '      resolution: [ 720, 220 ]\n' ...
         '      isPanoramic: 0\n' ...
         '   needsUnwrapping: 0\n'],gpsdata{1}.rec_time);
     fclose(fid);
